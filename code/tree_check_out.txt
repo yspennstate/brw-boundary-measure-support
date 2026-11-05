@@ -1,0 +1,12 @@
+1. exact radial recurrence: 3451 identities checked, q=2..8, L=2..30, all hold
+2. q=2 d=1  simulated 0.4979  exact 0.5000  z -0.86
+2. q=2 d=2  simulated 0.2474  exact 0.2500  z -1.22
+2. q=2 d=3  simulated 0.1258  exact 0.1250  z +0.51
+2. q=2 d=4  simulated 0.0643  exact 0.0625  z +1.49
+2. q=3 d=1  simulated 0.3340  exact 0.3333  z +0.27
+2. q=3 d=2  simulated 0.1097  exact 0.1111  z -0.89
+2. q=3 d=3  simulated 0.0378  exact 0.0370  z +0.77
+2. q=3 d=4  simulated 0.0127  exact 0.0123  z +0.63
+3. BRW, q=2, binary branching, generation 17 (131072 particles), 20 runs
+   smallest depth-2 cone share in each run: min 0.0099, median 0.0368
+   mean cone share over runs and cones 0.1568 (expected 1/6 = 0.1667, less the mass still within depth 1)

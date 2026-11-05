@@ -1,0 +1,229 @@
+\documentclass[11pt]{amsart}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,microtype,amsmath,amssymb,amsthm,mathtools,enumitem}
+\usepackage[margin=1.1in]{geometry}
+\usepackage[hidelinks]{hyperref}
+\usepackage{xurl}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{proposition}[theorem]{Proposition}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\numberwithin{equation}{section}
+
+\newcommand{\E}{\mathbb E}
+\newcommand{\Pp}{\mathbb P}
+\newcommand{\1}{\mathbf 1}
+\newcommand{\K}{\widehat S}
+\newcommand{\bd}{\partial S}
+
+\hypersetup{pdftitle={Support of the limiting boundary measure of branching random walk},pdfauthor={Yitzchak Shmalo}}
+
+\title{Support of the limiting boundary measure of branching random walk}
+\author{Yitzchak Shmalo}
+\address{Einstein Institute of Mathematics, The Hebrew University of Jerusalem, Jerusalem, Israel}
+\email{yitzchak.shmalo@gmail.com}
+\date{5 November 2026}
+\subjclass[2020]{60J80, 60J50, 60J10, 31C35}
+\keywords{branching random walk, Martin boundary, limit set, Dirichlet problem, hyperbolic group}
+
+\begin{document}
+\begin{abstract}
+Candellero and Hutchcroft proved that for a supercritical branching random walk on a transient irreducible Markov chain, with an offspring law satisfying the $L\log L$ condition, the normalised occupation measures converge almost surely to a random measure $W$ on the Martin boundary, and asked for conditions under which the support of $W$ coincides almost surely with the set of accumulation points of the walk. We show that this holds whenever the boundary has a countable basis of open sets $V$ such that the exit probability $\Pp_x(X_\infty\in V)$ stays bounded away from zero as $x$ tends to any point of $V$. The condition holds whenever the Martin compactification is Dirichlet regular. It therefore covers simple random walk on regular trees, for which we give a self-contained proof, and finitely supported symmetric random walks on non-elementary hyperbolic groups, for every supercritical $L\log L$ offspring law. The proof needs only the integrability of the martingale limit, with no second moment, and it applies on both sides of the local survival threshold.
+\end{abstract}
+\maketitle
+
+\section{Introduction}
+
+Let $M=(S,P)$ be a transient irreducible Markov chain on a countable set $S$, let $\K=S\cup\bd$ be its Martin compactification, and let $\mu$ be an offspring law with mean $m>1$ and $\sum_n\mu(n)\,n\log n<\infty$. In a branching random walk $B=(B_n)_{n\ge0}$ on $M$ each particle has an independent number of children with law $\mu$, and each child moves independently by one step of $P$ from its parent's position. We write $B_n$ also for the measure on $S$ that counts the particles of generation $n$. Candellero and Hutchcroft \cite[Theorem~1.1]{CH} proved that $m^{-n}B_n$ converges weakly almost surely, as a measure on $\K$, to a random measure $W$ that is supported on the harmonic part of the Martin boundary and satisfies
+\begin{equation}\label{eq:mean}
+\E_xW(A)=\Pp_x(X_\infty\in A)\qquad\text{for every Borel set }A\subseteq\K,
+\end{equation}
+where $(X_n)$ is the underlying chain and $X_\infty$ its limit in $\bd$. Much of the literature on the boundary behaviour of branching random walk concerns instead the set of accumulation points of the walk \cite{LS,SWX}. Candellero and Hutchcroft asked \cite[Problem~4.2]{CH}:
+\begin{quote}
+Give conditions under which the support of $W$ coincides almost surely with the set of accumulation points of $B$.
+\end{quote}
+Equality does not always hold. On the lamplighter group $\mathbb Z_2\wr\mathbb Z$ a supercritical branching random walk visits every vertex infinitely often, so that its accumulation set is the whole Martin boundary, while $W$ is a point mass because the group is Liouville \cite[Section~4]{CH}. They expected the two sets to coincide in sufficiently nice examples such as hyperbolic groups.
+
+Let $L\subseteq\bd$ be the set of points $\xi$ for which there are particles $u_j$, of generations $|u_j|\to\infty$, whose positions $X(u_j)$ converge to $\xi$ in $\K$. Since each generation is finite and the points of $S$ are isolated in $\K$, $L$ is also the set of boundary accumulation points of the set of all positions ever occupied. For a Borel set $V\subseteq\bd$ put
+\[
+h_V(x)=\Pp_x(X_\infty\in V),\qquad x\in S.
+\]
+
+\begin{definition}\label{def:R}
+The chain is \emph{boundary accessible} if $\bd$ has a countable basis $\{V_i\}$ of relatively open sets such that for every $i$ and every $\xi\in V_i$
+\begin{equation}\label{eq:R}
+\liminf_{S\ni x\to\xi}h_{V_i}(x)>0,
+\end{equation}
+that is, there are a neighbourhood $O$ of $\xi$ in $\K$ and $c>0$ with $h_{V_i}\ge c$ on $O\cap S$.
+\end{definition}
+
+\begin{theorem}\label{thm:main}
+Let $M$ be transient, irreducible and boundary accessible, and let $\mu$ have mean $m>1$ and satisfy the $L\log L$ condition. Then for every starting state, almost surely, $\operatorname{supp}W=L$.
+\end{theorem}
+
+No uniformity in $\xi$ or $i$ is required in \eqref{eq:R}. Boundary accessibility holds whenever $\K$ is Dirichlet regular (Lemma~\ref{lem:regular}), and in particular in the following two cases.
+
+\begin{corollary}\label{cor:tree}
+For simple random walk on the $(q+1)$-regular tree, $q\ge2$, and every offspring law with mean $m>1$ and $\sum_n\mu(n)n\log n<\infty$, almost surely $\operatorname{supp}W=L$.
+\end{corollary}
+
+\begin{corollary}\label{cor:hyp}
+Let $\Gamma$ be a non-elementary word-hyperbolic group and $P$ the random walk driven by a symmetric, finitely supported probability measure whose support generates $\Gamma$. For every offspring law with mean $m>1$ satisfying the $L\log L$ condition, almost surely $\operatorname{supp}W=L$.
+\end{corollary}
+
+In both corollaries there is no restriction on $m$ relative to the local survival threshold $1/\rho(P)$, where $\rho(P)$ is the spectral radius. The walk visits each state only finitely often exactly when $m\le1/\rho(P)$ \cite{GM}; in that regime the theorem identifies the support of $W$ with the limit set studied in \cite{LS,SWX}. When $m>1/\rho(P)$, on survival every vertex is visited infinitely often, $L=\bd$, and the theorem says that $W$ has full support.
+
+The $L\log L$ condition cannot simply be dropped (Remark~\ref{rem:LlogL}), and the condition of the theorem is sufficient but not necessary. The proof combines \eqref{eq:mean}, which converts a lower bound on $h_V$ into a lower bound on the probability that a single particle's descendants put mass on $V$, with the branching property and L\'evy's zero-one law.
+
+\section{Proof of Theorem~\ref{thm:main}}
+
+Throughout, $\Pp_x$ is the law of the branching random walk started from one particle at $x$, $(\mathcal F_n)$ is the filtration generated by the genealogy, the offspring numbers and the positions up to generation $n$, and particles are labelled by finite sequences of positive integers in the usual way. Let $Z=\lim_nm^{-n}|B_n|$ be the martingale limit of the underlying Galton--Watson process. Its law does not depend on the starting point, $\E Z=1$ by the Kesten--Stigum theorem, and, since weak convergence on the compact space $\K$ preserves total mass, $W(\K)=Z$.
+
+\subsection{The inclusion $\operatorname{supp}W\subseteq L$}
+Work on the event of weak convergence. By \cite[Theorem~1.1]{CH}, $W$ is carried by $\bd$, and since points of $S$ are isolated in $\K$, $\operatorname{supp}W\subseteq\bd$. Let $\xi\in\operatorname{supp}W$ and let $U$ be an open neighbourhood of $\xi$. Then $W(U)>0$, and by the portmanteau theorem $\liminf_nm^{-n}B_n(U)\ge W(U)>0$, so $U$ contains a particle of generation $n$ for all large $n$. Taking a decreasing sequence of neighbourhoods $U_k$ of $\xi$ with intersection $\{\xi\}$ and generations $n_k\uparrow\infty$ gives particles converging to $\xi$, so $\xi\in L$.
+
+\subsection{One particle}
+
+\begin{lemma}\label{lem:one}
+For every $c>0$ there is $p_c>0$, depending only on $c$ and $\mu$, such that $\Pp_x(W(V)>0)\ge p_c$ whenever $V\subseteq\bd$ is Borel and $h_V(x)\ge c$.
+\end{lemma}
+
+\begin{proof}
+Choose $K_c<\infty$ with $\E[Z;Z>K_c]\le c/2$, which is possible because $\E Z<\infty$. Since $W(V)\le Z$, \eqref{eq:mean} gives
+\[
+c\le h_V(x)=\E_xW(V)\le\E_x[Z;W(V)>0]\le K_c\,\Pp_x(W(V)>0)+\E[Z;Z>K_c],
+\]
+so $\Pp_x(W(V)>0)\ge c/(2K_c)=:p_c$.
+\end{proof}
+
+\subsection{The branching property}
+For a particle $u$ of generation $n$ let $B^u_k$ be the measure counting its descendants of generation $n+k$. By the branching property, conditionally on $\mathcal F_n$, the processes $(B^u_k)_{k\ge0}$, $|u|=n$, are independent and $(B^u_k)_k$ has the law of the branching random walk started at $X(u)$. Applying \cite[Theorem~1.1]{CH} conditionally to each of the countably many possible labels, almost surely $m^{-k}B^u_k$ converges weakly to a measure $W^u$ for every particle $u$, and since generation $n$ is finite,
+\[
+W=\lim_km^{-n-k}B_{n+k}=m^{-n}\sum_{|u|=n}W^u
+\]
+as an identity of finite measures. Hence, for a Borel set $V\subseteq\bd$ and $A_V=\{W(V)=0\}$,
+\begin{equation}\label{eq:product}
+\Pp(A_V\mid\mathcal F_n)=\prod_{|u|=n}\Pp_{X(u)}\bigl(W(V)=0\bigr),
+\end{equation}
+the empty product being $1$. By Lemma~\ref{lem:one}, if some particle $u$ of generation $n$ has $h_V(X(u))\ge c$, then $\Pp(A_V\mid\mathcal F_n)\le1-p_c$.
+
+\begin{lemma}\label{lem:finitely}
+Let $V\subseteq\bd$ be Borel and $c>0$. Almost surely on $\{W(V)=0\}$, only finitely many generations contain a particle $u$ with $h_V(X(u))\ge c$.
+\end{lemma}
+
+\begin{proof}
+$A_V$ is measurable with respect to $\mathcal F_\infty=\sigma(\bigcup_n\mathcal F_n)$, so by L\'evy's zero-one law $\Pp(A_V\mid\mathcal F_n)\to\1_{A_V}$ almost surely. On $A_V$, therefore, $\Pp(A_V\mid\mathcal F_n)>1-p_c$ for all large $n$, and by \eqref{eq:product} and Lemma~\ref{lem:one} no particle of such a generation $n$ has $h_V(X(u))\ge c$.
+\end{proof}
+
+\subsection{The inclusion $L\subseteq\operatorname{supp}W$}
+Let $\Omega_0$ be the event on which $m^{-n}B_n\to W$ weakly and the conclusion of Lemma~\ref{lem:finitely} holds for every pair $(V_i,1/j)$, $i,j\ge1$. It is a countable intersection of almost sure events. On $\Omega_0$ let $\xi\in L\setminus\operatorname{supp}W$. There is an open neighbourhood $U$ of $\xi$ in $\K$ with $W(U)=0$ and a basic set $V_i$ with $\xi\in V_i\subseteq U\cap\bd$, so $W(V_i)=0$. By \eqref{eq:R} there are a neighbourhood $O$ of $\xi$ and $j$ with $h_{V_i}\ge1/j$ on $O\cap S$. Particles $u_k$ with $|u_k|\to\infty$ and $X(u_k)\to\xi$ lie in $O$ for all large $k$, so infinitely many generations contain a particle with $h_{V_i}(X(u))\ge1/j$, which contradicts Lemma~\ref{lem:finitely}. Hence $L\subseteq\operatorname{supp}W$ on $\Omega_0$, and Theorem~\ref{thm:main} is proved. \qed
+
+\begin{remark}
+On extinction both sets are empty. The selection of $\xi$ after the process is observed causes no difficulty, because every almost sure statement is indexed by the countable family $(V_i,1/j)$. The proof never assigns positive mass to a single genealogical line, and it uses no independence between the visits of different particles to $O$; L\'evy's zero-one law at deterministic times takes care of the dependence.
+\end{remark}
+
+\begin{remark}\label{rem:LlogL}
+Without the $L\log L$ condition the conclusion fails even on the $3$-regular tree. Let $a_k=1/(k^2\log^2k)$ for $k\ge3$, $A=\sum_{k\ge3}a_k$, and $\mu(2)=1/2$, $\mu(k)=a_k/(2A)$ for $k\ge3$. Then $\mu$ has finite mean larger than $2$, the Galton--Watson tree survives surely, and $\sum_k\mu(k)k\log k=\infty$, so by the Kesten--Stigum theorem $m^{-n}|B_n|\to0$ and every weak limit of $m^{-n}B_n$ is the zero measure. On the other hand the line of first children performs simple random walk and converges to an end (Section~\ref{sec:tree}), so $L\neq\emptyset$.
+\end{remark}
+
+\section{Dirichlet regularity}
+
+Following \cite[Definition~3.17]{KW}, $\K$ is \emph{Dirichlet regular} if for every $\varphi\in C(\bd)$ there is a unique $P$-harmonic function $f^\varphi$ on $S$ that extends $\varphi$ continuously to $\K$.
+
+\begin{lemma}\label{lem:regular}
+If $\K$ is Dirichlet regular, then $h_V(x)\to1$ as $x\to\xi$ for every relatively open $V\subseteq\bd$ and every $\xi\in V$. In particular the chain is boundary accessible.
+\end{lemma}
+
+\begin{proof}
+Since $\bd$ is compact metrizable, there is $\varphi\in C(\bd)$ with $0\le\varphi\le1$, $\varphi(\xi)=1$ and $\varphi=0$ off $V$. The bounded martingale $f^\varphi(X_n)$ converges almost surely, and since $X_n\to X_\infty$ in $\K$ and $f^\varphi$ is continuous on $\K$, its limit is $\varphi(X_\infty)$. Hence $f^\varphi(x)=\E_x\varphi(X_\infty)\le h_V(x)\le1$, and $f^\varphi(x)\to\varphi(\xi)=1$ as $x\to\xi$. Any countable basis of $\bd$ satisfies \eqref{eq:R}.
+\end{proof}
+
+\subsection{Regular trees}\label{sec:tree}
+Let $T$ be the $(q+1)$-regular tree, $q\ge2$, with root $o$, and $P$ simple random walk. We give a direct proof of Corollary~\ref{cor:tree}, since it needs only elementary facts. Fix a vertex $a$. Until it hits $a$, the distance $R$ from $a$ decreases with probability $1/(q+1)$ and increases with probability $q/(q+1)$. For $0\le r\le\ell$ the probability of hitting $0$ before $\ell$ is
+\[
+f_\ell(r)=\frac{q^{-r}-q^{-\ell}}{1-q^{-\ell}},
+\]
+which is the unique solution of $(q+1)f(r)=f(r-1)+qf(r+1)$ with $f(0)=1$, $f(\ell)=0$, by the maximum principle; letting $\ell\to\infty$ gives
+\begin{equation}\label{eq:hit}
+\Pp_x(\text{the walk hits }a)=q^{-d(x,a)}.
+\end{equation}
+Consequently the number of visits to $a$ is geometric with mean $G(a,a)=q/(q-1)$, every finite set is eventually left forever, and the walk converges to an end. By the strong Markov property $G(x,y)=q^{1-d(x,y)}/(q-1)$, and the Martin kernel is $K(x,y)=G(x,y)/G(o,y)=q^{2(x|y)_o-|x|}$, where $(x|y)_o$ is the length of the common part of the geodesics from $o$ to $x$ and to $y$. As $y$ tends to an end $\eta$ the kernel converges to $q^{2(x|\eta)_o-|x|}$, and these limits separate ends; hence the Martin compactification is the end compactification, with its topology \cite{Car,Woe}.
+
+For a vertex $v\ne o$ let $C_v$ be the set of ends whose ray from $o$ passes through $v$. The sets $C_v$ form a countable basis of clopen sets of $\bd$. If $x$ lies in the subtree $T_v$ of descendants of $v$ (including $v$), a walk from $x$ that does not end in $C_v$ must hit the parent of $v$, so by \eqref{eq:hit}
+\[
+h_{C_v}(x)\ge1-q^{-d(x,v)-1}.
+\]
+If $x\to\eta\in C_v$ then $x\in T_v$ eventually and $d(x,v)\to\infty$, so $h_{C_v}(x)\to1$. The chain is boundary accessible and Theorem~\ref{thm:main} gives Corollary~\ref{cor:tree}.
+
+\subsection{Hyperbolic groups}
+Under the assumptions of Corollary~\ref{cor:hyp}, the group is non-amenable, so $\rho(P)<1$ by Kesten's theorem and the walk is transient; it is irreducible because the support generates $\Gamma$. By Ancona's theorem \cite{An1,An2} the Martin compactification of a finitely supported random walk on a hyperbolic group with $\rho(P)<1$ is the hyperbolic compactification of the Cayley graph of $\Gamma$ with respect to the support of the step law. That graph is locally finite and hyperbolic, its boundary is infinite because $\Gamma$ is non-elementary, and $\Gamma$ acts transitively on its vertices by left translations, preserving $P$ and fixing no boundary point. By the result of Woess recorded as \cite[Proposition~3.38]{KW} (see \cite{Woe93}) the hyperbolic compactification is then Dirichlet regular, and Corollary~\ref{cor:hyp} follows from Lemma~\ref{lem:regular} and Theorem~\ref{thm:main}.
+
+\section{Computations}
+
+The repository \cite{code} contains a short program and a Lean file. The program checks in exact rational arithmetic the $3{,}451$ identities behind \eqref{eq:hit} for $q=2,\dots,8$ and $\ell=2,\dots,30$, checks \eqref{eq:hit} by simulation for $q=2,3$ and $d(x,a)\le4$ (all $|z|<1.5$), and runs twenty branching random walks with binary branching on the $3$-regular tree for $17$ generations. In every run each of the six cones of depth two carries a positive share of the $131{,}072$ particles (the smallest share over all runs is $0.0099$). This is consistent with the full support of $W$ given by Corollary~\ref{cor:tree} in this regime, where $m=2$ exceeds $1/\rho(P)=3/(2\sqrt2)$; it is not a test of a limit. The Lean file checks the algebraic step in the proof of Lemma~\ref{lem:one}.
+
+\section*{Acknowledgements and funding}
+The research presented in this paper was supported by the European Research
+Council (ERC) under the European Union's Horizon Europe research and
+innovation programme (grant agreement No.~101041711), by the Simons
+Foundation as part of the Collaboration on the Mathematical and Scientific
+Foundations of Deep Learning, by Heights Labs, by Convex Nexus Capital, by
+the Israel Science Foundation (grant number 2258/19), and by the Israel
+Science Foundation (ISF Grant 4101/25). Computational resources were
+provided in part by Google Cloud through its education credits program
+(credit 530550103).
+
+\section*{Declaration of competing interest}
+The author holds equity in Heights Labs and in Convex Nexus Capital and
+has a management role at Convex Nexus Capital. These entities are included
+in the funding declaration above.
+
+\section*{Declaration of generative AI and AI-assisted technologies}
+The paper comes out of Math Brain, an ongoing project on the use of AI systems for research mathematics. In October 2026 OpenAI GPT models, running as research tasks of that project, proposed the proof of Theorem~\ref{thm:main} and the two corollaries and wrote the Lean file. In November 2026 Claude Opus~5.5 (Anthropic), working in Claude Code, checked the proof, wrote the program and wrote the paper. The author directed the work and is responsible for the content of the paper and for decisions concerning its dissemination.
+
+\section*{Data availability}
+No data were used. The code is available at\\ \url{https://github.com/yspennstate/brw-boundary-measure-support}.
+
+\begin{thebibliography}{10}
+
+\bibitem{An1}
+A.~Ancona, Negatively curved manifolds, elliptic operators, and the Martin boundary, \emph{Ann. of Math.} \textbf{125} (1987), 495--536.
+
+\bibitem{An2}
+A.~Ancona, Positive harmonic functions and hyperbolicity, in \emph{Potential Theory---Surveys and Problems}, Lecture Notes in Math. \textbf{1344}, Springer, Berlin, 1988, 1--23.
+
+\bibitem{CH}
+E.~Candellero and T.~Hutchcroft, On the boundary at infinity for branching random walk, \emph{Electron. Commun. Probab.} \textbf{28} (2023), 1--12.
+
+\bibitem{Car}
+P.~Cartier, Fonctions harmoniques sur un arbre, \emph{Symposia Mathematica} \textbf{9} (1972), 203--270.
+
+\bibitem{GM}
+N.~Gantert and S.~M\"uller, The critical branching Markov chain is transient, \emph{Markov Process. Related Fields} \textbf{12} (2006), 805--814.
+
+\bibitem{KW}
+V.~A.~Kaimanovich and W.~Woess, Limit distributions of branching Markov chains, \emph{Ann. Inst. Henri Poincar\'e Probab. Stat.} \textbf{59} (2023), 1951--1983.
+
+\bibitem{LS}
+F.~P.~Lalley and T.~Sellke, Hyperbolic branching Brownian motion, \emph{Probab. Theory Related Fields} \textbf{108} (1997), 171--192.
+
+\bibitem{code}
+Y.~Shmalo, Computations for ``Support of the limiting boundary measure of branching random walk'', \url{https://github.com/yspennstate/brw-boundary-measure-support}, 2026.
+
+\bibitem{SWX}
+V.~Sidoravicius, L.~Wang and K.~Xiang, Limit set of branching random walks on hyperbolic groups, \emph{Comm. Pure Appl. Math.} \textbf{76} (2023), 2765--2803.
+
+\bibitem{Woe93}
+W.~Woess, Fixed sets and free subgroups of groups acting on metric spaces, \emph{Math. Z.} \textbf{214} (1993), 425--440.
+
+\bibitem{Woe}
+W.~Woess, \emph{Random Walks on Infinite Graphs and Groups}, Cambridge University Press, Cambridge, 2000.
+
+\end{thebibliography}
+
+\end{document}
