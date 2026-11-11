@@ -43,11 +43,13 @@ Let $M=(S,P)$ be a transient irreducible Markov chain on a countable set $S$, le
 \begin{equation}\label{eq:mean}
 \E_xW(A)=\Pp_x(X_\infty\in A)\qquad\text{for every Borel set }A\subseteq\K,
 \end{equation}
-where $(X_n)$ is the underlying chain and $X_\infty$ its limit in $\bd$. Much of the literature on the boundary behaviour of branching random walk concerns instead the set of accumulation points of the walk \cite{LS,HL,SWX,DWY}. Bertacchi, Candellero and Zucca \cite{BCZ} relate the typical asymptotic directions of the particles to the Martin boundary of the underlying walk. Candellero and Hutchcroft asked \cite[Problem~4.2]{CH}:
+where $(X_n)$ is the underlying chain and $X_\infty$ its limit in $\bd$. Much of the literature on the boundary behaviour of branching random walk concerns instead the set of accumulation points of the walk \cite{LS,Lig,HL,CGM,SWX,DWY}. Bertacchi, Candellero and Zucca \cite{BCZ} relate the typical asymptotic directions of the particles to the Martin boundary of the underlying walk. Candellero and Hutchcroft asked \cite[Problem~4.2]{CH}:
 \begin{quote}
 Give conditions under which the support of $W$ coincides almost surely with the set of accumulation points of $B$.
 \end{quote}
 Equality does not always hold. On the lamplighter group $\mathbb Z_2\wr\mathbb Z$ a supercritical branching random walk visits every vertex infinitely often, so that its accumulation set is the whole Martin boundary, while $W$ is a point mass because the group is Liouville \cite[Section~4]{CH}. They expected the two sets to coincide in sufficiently nice examples such as hyperbolic groups.
+
+For branching Brownian motion in the hyperbolic plane with branching rate $\beta$, Woess \cite[Questions~7.6]{Woe24} asks whether the support of the limit measure is a proper subset of the limit set and what the Hausdorff dimension of the measure is. Geldbach \cite{Gel} shows that the measure has dimension $\min\{2\beta,1\}$, which for $\beta<1/2$ is smaller than the dimension of the limit set found by Lalley and Sellke \cite{LS}. The dimension of a measure is the smallest dimension of a set of full measure, and a measure carried by such a set may still have the whole limit set as its closed support; the theorem below concerns the closed support.
 
 Let $L\subseteq\bd$ be the set of points $\xi$ for which there are particles $u_j$, of generations $|u_j|\to\infty$, whose positions $X(u_j)$ converge to $\xi$ in $\K$. Since each generation is finite and the points of $S$ are isolated in $\K$, $L$ is also the set of boundary accumulation points of the set of all positions ever occupied. For a Borel set $V\subseteq\bd$ put
 \[
@@ -76,7 +78,7 @@ For simple random walk on the $(q+1)$-regular tree, $q\ge2$, and every offspring
 Let $\Gamma$ be a non-elementary word-hyperbolic group and $P$ the random walk driven by a symmetric, finitely supported probability measure whose support generates $\Gamma$. For every offspring law with mean $m>1$ satisfying the $L\log L$ condition, almost surely $\operatorname{supp}W=L$.
 \end{corollary}
 
-In both corollaries there is no restriction on $m$ relative to the local survival threshold $1/\rho(P)$, where $\rho(P)$ is the spectral radius. The walk visits each state only finitely often exactly when $m\le1/\rho(P)$ \cite{GM}; in that regime the theorem identifies the support of $W$ with the limit set studied in \cite{LS,SWX}. When $m>1/\rho(P)$, on survival every vertex is visited infinitely often, $L=\bd$, and the theorem says that $W$ has full support.
+In both corollaries there is no restriction on $m$ relative to the local survival threshold $1/\rho(P)$, where $\rho(P)$ is the spectral radius. The walk visits each state only finitely often exactly when $m\le1/\rho(P)$ \cite{BP,GM}; in that regime the theorem identifies the support of $W$ with the limit set studied in \cite{LS,SWX}. When $m>1/\rho(P)$, on survival every vertex is visited infinitely often, $L=\bd$, and the theorem says that $W$ has full support.
 
 The $L\log L$ condition cannot simply be dropped (Remark~\ref{rem:LlogL}), and the condition of the theorem is sufficient but not necessary. The proof combines \eqref{eq:mean}, which converts a lower bound on $h_V$ into a lower bound on the probability that a single particle's descendants put mass on $V$, with the branching property and L\'evy's zero-one law.
 
@@ -201,8 +203,14 @@ A.~Ancona, Negatively curved manifolds, elliptic operators, and the Martin bound
 \bibitem{An2}
 A.~Ancona, Positive harmonic functions and hyperbolicity, in \emph{Potential Theory---Surveys and Problems}, Lecture Notes in Math. \textbf{1344}, Springer, Berlin, 1988, 1--23.
 
+\bibitem{BP}
+I.~Benjamini and Y.~Peres, Markov chains indexed by trees, \emph{Ann. Probab.} \textbf{22} (1994), 219--243.
+
 \bibitem{BCZ}
 D.~Bertacchi, E.~Candellero and F.~Zucca, Martin boundaries and asymptotic behavior of branching random walks, \emph{Electron. J. Probab.} \textbf{29} (2024), 1--27.
+\bibitem{CGM}
+E.~Candellero, L.~A.~Gilch and S.~M\"uller, Branching random walks on free products of groups, \emph{Proc. Lond. Math. Soc.} \textbf{104} (2012), 1085--1120.
+
 \bibitem{CH}
 E.~Candellero and T.~Hutchcroft, On the boundary at infinity for branching random walk, \emph{Electron. Commun. Probab.} \textbf{28} (2023), 1--12.
 
@@ -214,16 +222,22 @@ M.~Dussaule, L.~Wang and W.~Yang, Branching random walks on relatively hyperboli
 \bibitem{GM}
 N.~Gantert and S.~M\"uller, The critical branching Markov chain is transient, \emph{Markov Process. Related Fields} \textbf{12} (2006), 805--814.
 
+\bibitem{Gel}
+D.~Geldbach, Hyperbolic branching Brownian motion: the empirical limit measure, preprint (2025), arXiv:2509.06730.
+
 \bibitem{HL}
 I.~Hueter and S.~P.~Lalley, Anisotropic branching random walks on homogeneous trees, \emph{Probab. Theory Related Fields} \textbf{116} (2000), 57--88.
 \bibitem{KW}
 V.~A.~Kaimanovich and W.~Woess, Limit distributions of branching Markov chains, \emph{Ann. Inst. Henri Poincar\'e Probab. Stat.} \textbf{59} (2023), 1951--1983.
 
 \bibitem{LS}
-F.~P.~Lalley and T.~Sellke, Hyperbolic branching Brownian motion, \emph{Probab. Theory Related Fields} \textbf{108} (1997), 171--192.
+S.~P.~Lalley and T.~Sellke, Hyperbolic branching Brownian motion, \emph{Probab. Theory Related Fields} \textbf{108} (1997), 171--192.
 
 \bibitem{code}
 Y.~Shmalo, Computations for ``Support of the limiting boundary measure of branching random walk'', \url{https://github.com/yspennstate/brw-boundary-measure-support}, 2026.
+
+\bibitem{Lig}
+T.~M.~Liggett, Branching random walks and contact processes on homogeneous trees, \emph{Probab. Theory Related Fields} \textbf{106} (1996), 495--519.
 
 \bibitem{SWX}
 V.~Sidoravicius, L.~Wang and K.~Xiang, Limit set of branching random walks on hyperbolic groups, \emph{Comm. Pure Appl. Math.} \textbf{76} (2023), 2765--2803.
@@ -233,6 +247,9 @@ W.~Woess, Fixed sets and free subgroups of groups acting on metric spaces, \emph
 
 \bibitem{Woe}
 W.~Woess, \emph{Random Walks on Infinite Graphs and Groups}, Cambridge University Press, Cambridge, 2000.
+
+\bibitem{Woe24}
+W.~Woess, Notes on hyperbolic branching Brownian motion, \emph{Stochastic Process. Appl.} (2026), Paper No.~104965.
 
 \bibitem{MathBrainRepo} Y.~Shmalo, \emph{Math Brain: public snapshot, code and tests}, 2026, \url{https://github.com/yspennstate/math-brain-public}.
 
